@@ -5,19 +5,19 @@ import numpy as np
 def Raster(rows):
     image = np.zeros((rows, rows))
 
-    for i in range(0, rows):
+    for i in range(0, rows, 5):
         if i % 2 == 0:
-            for j in range(0, rows):
+            for j in range(0, rows, 5):
                 if j % 2 == 0:
-                    image[i, j] = 0
+                    image[i:i+5, j:j+5] = 0
                 else:
-                    image[i, j] = 255
+                    image[i:i+5, j:j+5] = 255
         else:
-            for j in range(0, rows):
+            for j in range(0, rows, 5):
                 if j % 2 == 0:
-                    image[i, j] = 255
+                    image[i:i+5, j:j+5] = 255
                 else:
-                    image[i, j] = 0
+                    image[i:i+5, j:j+5] = 0
 
     cv2.imshow('my pic 1', image)
     cv2.waitKey()
